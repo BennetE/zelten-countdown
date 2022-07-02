@@ -25,7 +25,8 @@
     #number {
         font-size: 45px;
         font-weight: bold;
-        color: #c40;
+        /*color: #c40;*/
+        color: #226e93;
     }
 
     #text {

@@ -30,6 +30,7 @@
         font-size: 40px;
         font-weight: 400;
         color: #086;
+        margin: 0;
     }
 
     #countdown {
