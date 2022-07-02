@@ -22,7 +22,7 @@
 
 <style>
     main {
-        border: 1px solid red;
+        /*border: 1px solid red;*/
         height: 100vh;
         box-sizing: border-box;
         display: flex;
