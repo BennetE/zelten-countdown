@@ -22,11 +22,16 @@
 
 <style>
     main {
-        text-align: center;
+        border: 1px solid red;
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     h1 {
-        /*border: 1px solid red;*/
         font-size: 40px;
         font-weight: 400;
         color: #086;
@@ -38,5 +43,11 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+
+    @media only screen and (max-width: 800px) {
+        h1 {
+            font-size: 6vw;
+        }
     }
 </style>

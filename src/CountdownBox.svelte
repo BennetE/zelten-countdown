@@ -32,4 +32,17 @@
     #text {
         font-size: 20px;
     }
+
+    @media only screen and (max-width: 800px) {
+        main {
+            height: 70px;
+            width: 80px;
+        }
+        #number {
+            font-size: 30px;
+        }
+        #text {
+            font-size: 16px;
+        }
+    }
 </style>
