@@ -2,21 +2,30 @@
     import CountdownBox from "./CountdownBox.svelte";
     import { getTimeInterval } from "./helper/getTimeInterval"
 
-    const endDate = new Date(2022, 7 - 1, 3, 0, 6);
-    let timeInterval = getTimeInterval(endDate);
+    const zeltenDates = [
+        new Date(2022, 6 - 1, 24, 12),
+        new Date(2023, 6 - 1, 30, 12),
+        new Date(2024, 6 - 1, 28, 12),
+        new Date(2025, 6 - 1, 27, 12),
+        new Date(2026, 6 - 1, 26, 12),
+        new Date(2027, 6 - 1, 25, 12)
+    ];
+
+    const getNextEvent = zeltenDates.find(date => new Date().getTime() < date.getTime());
+    let timeInterval = getNextEvent ? getTimeInterval(getNextEvent) : null;
 
     setInterval(() => {
-        timeInterval = getTimeInterval(endDate)
+        timeInterval = getNextEvent ? getTimeInterval(getNextEvent) : null;
     }, 1000);
 </script>
 
 <main>
     <h1>Nächstes Zelten in:</h1>
     <div id="countdown">
-        <CountdownBox number={timeInterval.days} text="Tage" textSingular="Tag"/>
-        <CountdownBox number={timeInterval.hours} text="Stunden" textSingular="Stunde"/>
-        <CountdownBox number={timeInterval.minutes} text="Minuten" textSingular="Minute"/>
-        <CountdownBox number={timeInterval.seconds} text="Sekunden" textSingular="Sekunde"/>
+        <CountdownBox number={timeInterval?.days || 0} text="Tage" textSingular="Tag"/>
+        <CountdownBox number={timeInterval?.hours || 0} text="Stunden" textSingular="Stunde"/>
+        <CountdownBox number={timeInterval?.minutes || 0} text="Minuten" textSingular="Minute"/>
+        <CountdownBox number={timeInterval?.seconds || 0} text="Sekunden" textSingular="Sekunde"/>
     </div>
 </main>
 
